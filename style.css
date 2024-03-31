@@ -1,14 +1,55 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f0f0f0;
 }
 
-.action-btn {
-    margin: 10px;
-    padding: 20px;
-    font-size: large;
+button {
+    display: block;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    background-color: #fff;
     cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: #f9f9f9;
+}
+
+button.selected {
+    border-color: #007bff;
+    background-color: #e7f1ff;
+}
+
+#send-button {
+    margin-top: 20px;
+    border-color: #28a745;
+    background-color: #dcffe4;
+    color: #005f23;
+    font-weight: bold;
+}
+
+#send-button:hover {
+    background-color: #caffd0;
+}
+
+#categories-interface, #messages-interface, #contacts-list {
+    margin-bottom: 20px;
+}
+
+#selected-info {
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+.selected-info-item {
+    margin: 10px 0;
+    padding: 5px;
+    background-color: #eef;
+    border-left: 5px solid #007bff;
 }

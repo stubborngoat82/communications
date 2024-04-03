@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-});
+
 
 function openContacts() {
     fetch('http://localhost:3005/contacts')
@@ -44,3 +44,27 @@ function openContacts() {
     console.log('Selected contact:', contact);
     openMessagesInterface(contact); //Proceed to message selection
   }  
+
+  function getRandomColor() {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+  
+  function setGradient() {
+    let color1 = getRandomColor();
+    let color2 = getRandomColor();
+    let color3 = getRandomColor();
+    document.getElementById('messageButton').style.background = `linear-gradient(45deg, ${color1}, ${color2}, ${color3})`;
+    document.getElementById('settingButton').style.background = `linear-gradient(45deg, ${color3}, ${color2}, ${color1})`;
+}
+  
+  setInterval(setGradient, 5000); // Change gradient every 5 seconds
+  
+  window.onload = setGradient; // Initial gradient setup
+  
+
+});

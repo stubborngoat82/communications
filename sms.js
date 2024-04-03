@@ -1,13 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const contacts = [{ id: 1, name: 'John Doe', phone: '+18777804236' }, {id: 2, name: 'Wesley Thompson', phone: '+16232412549'}, {id:3, name:'Test Phone', phone: '+14806085081'}];
+    const contacts = [{ id: 1, name: 'John Doe', phone: '+18777804236' }, {id: 2, name: 'Wesley Thompson', phone: '+16232412549'}, {id:3, name:'Test Phone', phone: '+14806085081'}, { id: 4, name: 'John Doe', phone: '+18777804236' }, {id: 5, name: 'Wesley Thompson', phone: '+16232412549'}, {id:6, name:'Test Phone', phone: '+14806085081'}];
    
     let selectedContact = null;
     let selectedMessage = null;
 
-    const contactsList = document.getElementById('contacts-interface');
+    const contactsList = document.getElementById('contacts-list');
     const messagesList = document.getElementById('messages-interface');
     const categoriesInterface = document.getElementById('categories-interface');
     const sendButton = document.getElementById('send-button');
+    const contactsInterface = document.getElementById('contacts-interface');
 
     const cannedMessagesByCategory = {
         "Basic Needs & Comfort": [
@@ -61,21 +62,27 @@ document.addEventListener('DOMContentLoaded', () => {
     sendButton.style.display= 'none';
     categoriesInterface.style.display= 'none';
     messagesList.style.display= 'none';
+    populateContacts();
 
 
-    // Populate contacts
-    contacts.forEach(contact => {
-        const contactElement = document.createElement('button');
-        contactElement.textContent = contact.name;
-        contactElement.addEventListener('click', () => selectContact(contact));
-        contactsList.appendChild(contactElement);
-    });
+
 
     function selectContact(contact) {
         selectedContact = contact;
         contactsList.style.display = 'none';
         openCategoriesInterface();
         updateSelectedInfo();
+    }
+
+    function populateContacts () {
+        contactsInterface.innerHTML = '';
+        contacts.forEach(contact => {
+            const contactElement = document.createElement('button');
+            contactElement.className='contact-btn';
+            contactElement.textContent = contact.name;
+            contactElement.addEventListener('click', () => selectContact(contact));
+        contactsInterface.appendChild(contactElement);
+        });
     }
 
     function openCategoriesInterface() {

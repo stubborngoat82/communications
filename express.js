@@ -1,12 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const Twilio = require('twilio');
+
 require('dotenv').config();
 
 const accountSid = process.env.TWILIO_SID;
 const authToken = process.env.TWILIO_AUTHTOKEN;
+console.log(accountSid, authToken)
 const client = require('twilio')(accountSid, authToken);
+
+const path = require('path');
+const fs = require('fs');
 
 
 const app = express();
@@ -33,7 +37,7 @@ app.post('/send-sms', (req, res) => {
         res.send({message: 'SMS sent successfully.', sid: message.sid});
     })
     .catch(error => {
-        console.error(error);
+        console.error(`Error sending SMS: ${error.message}`);
         res.status(500).send({error: 'Failed to send SMS.'});
     })
 });
@@ -41,7 +45,7 @@ app.post('/send-sms', (req, res) => {
 app.get('/contacts', (req, res) => {
     const filePath = path.join(__dirname, 'contacts.json');
 
-    FileSystem.readFile(filePath, (err, data) => {
+    fs.readFile(filePath, (err, data) => {
         if(err) {
             console.error(err);
             res.status(500).send('Error reading contacts file.');

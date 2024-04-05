@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // More messages in this category...
         ],
         "Entertainment & Social Interaction": [
-            "Can you bring me a book to read or my reading device?",
+             "Can you bring me a book to read or my reading device?",
             "I'd like to watch TV.  Can you turn it on and set it to my favorite channel?",
             "I'm feeling lonely.  Can you stay and chat for a while?",
-            "Can you st up a call with my family/friend?"
+            "Can you set up a call with my family/friend?"
         ],
         "Health & Wellbeing": [
             "I need to speak with a doctor/nurse about how I'm feeling.",

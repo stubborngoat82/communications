@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistive Communication App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>Assistive Communication-Contacts</h2>
+        <div>
+        <a href="settings.html"><button class="menu-button">Settings</button></a>
+        <a href="sms.html"><button class="menu-button">Message</button></a>
+    </div>
+</header>
+    <div id="contactList">
+        <button class="addNew " id="addContact" >Add Contact</button>
+        <button class="action-btn" data-message="Dietary assistance needed">Dietary</button>
+        <button class="action-btn" data-action="turn-off-lights">Turn Off Lights</button>
+        <button class="action-btn" onclick="openContacts()">Make a Call</button>
+        <!-- Add more buttons as needed -->
+    </div>
+    <div id="contacts-interface" style="display:none;">
+        <!-- Dynamically filled with contacts -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

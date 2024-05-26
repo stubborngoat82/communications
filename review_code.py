@@ -1,13 +1,25 @@
 import openai
 import os
+import requests
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def get_code_diff():
-    # Fetch the diff of the code changes (this is a simplified example)
-    with open("diff.txt", "r") as file:
-        code_diff = file.read()
-    return code_diff
+    # Get GitHub event data
+    event_path = os.getenv("GITHUB_EVENT_PATH")
+    with open(event_path) as f:
+        event = json.load(f)
+    
+    # Extract pull request data
+    pull_request_url = event["pull_request"]["url"]
+    
+    # Get the diff of the pull request
+    headers = {
+        "Accept": "application/vnd.github.v3.diff",
+        "Authorization": f"Bearer {os.getenv('GITHUB_TOKEN')}"
+    }
+    response = requests.get(pull_request_url, headers=headers)
+    return response.text
 
 def review_code(code_diff):
     response = openai.Completion.create(

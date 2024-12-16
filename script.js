@@ -58,7 +58,7 @@ function openContacts() {
     let color1 = getRandomColor();
     let color2 = getRandomColor();
     let color3 = getRandomColor();
-    document.getElementById('messageButton').style.background = `linear-gradient(45deg, ${color1}, ${color2}, ${color3})`;
+    document.getElementById('messageButton').style.background = `linear-gradient(73deg, ${color1}, ${color2}, ${color3})`;
     document.getElementById('settingButton').style.background = `linear-gradient(45deg, ${color3}, ${color2}, ${color1})`;
 }
   
